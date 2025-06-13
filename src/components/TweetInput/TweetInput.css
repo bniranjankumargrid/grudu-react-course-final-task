@@ -1,0 +1,25 @@
+.tweet_section {
+  position: relative;
+  /* width: 100%; */
+  max-width: 780px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet_section_textarea {
+  width: 780px;
+  height: 120px;
+  padding: 16px;
+  border: 1.5px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+}
+
+.tweet_button_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}

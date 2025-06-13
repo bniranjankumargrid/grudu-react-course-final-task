@@ -1,0 +1,21 @@
+*{
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+button{
+  background-color: #CBCCD6;
+  border: 1px solid black;
+  /* width: 139px;
+  height: 55px; */
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  }
