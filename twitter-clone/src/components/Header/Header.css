@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+.header {
+  height: 110px;
+  /* width: 100%; */
+  background-color: #cbccd6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 60px 0 60px;
+}
+
+.header_logo {
+  display: flex;
+  align-items: center;
+}
+.header_logo_company{
+   font-family: 'Open Sans', sans-serif;
+}
+.header_user_profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* margin-right: 50px; */
+}
+.header_user_profile_name{
+   font-family: 'Open Sans', sans-serif;  
+}
+
+.header_user_profile_pic {
+  background-color: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 100;
+  font-family: 'Roboto Mono', monospace;
+}
+.header_options{
+  position:absolute;
+  z-index: 10;
+  right: 0;
+  top: 50px;
+  margin: 10px;
+}
+
+.header_options_button{
+  cursor: pointer;
+}
