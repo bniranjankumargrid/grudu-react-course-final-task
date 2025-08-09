@@ -8,32 +8,31 @@ import { getInitials } from "../../Utils/utils";
 
 export function HomePage() {
   const [tweets, setTweets] = useState<Tweets[]>([]);
+  const fetchTweets = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/tweets");
+      const res: Tweets[] = await response.json();
+
+      const processedTweets: Tweets[] = res.map((tweet) => ({
+        id: tweet.id,
+        author_id: getUserFullName(tweet.author_id) as string,
+        text: tweet.text,
+      })).reverse();
+
+      setTweets(processedTweets);
+    } catch (error) {
+      console.error("Error fetching tweets:", error);
+    }
+  };
+
   useEffect(() => {
-    let isMounted = true;
-  
-    fetch("http://localhost:3000/tweets")
-      .then((res) => res.json())
-      .then((res: Tweets[]) => {
-        if (!isMounted) return;
-  
-        const tweets: Tweets[] = res.map((tweet) => ({
-          id: tweet.id,
-          author_id: getUserFullName(tweet.author_id) as string,
-          text: tweet.text,
-        })).reverse();
-  
-        setTweets(tweets);
-      });
-  
-    return () => {
-      isMounted = false;
-    };
-  }, [tweets]);
+    fetchTweets();
+  }, []);
 
   return (
     <>
       <Header />
-      <TweetInput tweetsState={setTweets} />
+      <TweetInput onTweetAdded={fetchTweets} />
       {tweets.map((t) => (
         <Tweet
           key={t.id}

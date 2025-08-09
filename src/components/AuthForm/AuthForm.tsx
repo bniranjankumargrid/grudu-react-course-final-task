@@ -4,6 +4,8 @@ import { Errors, User } from "../../types";
 import { addUser, authenticateUser, checkUserEmailExist, checkUserNameExist, getUsersFromDb } from "../../service/userService";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { baseAuthSchema, signupSchema } from "../../schema/auth.schema";
+import z from "zod";
 function AuthForm() {
   const { setLoggedInUser } = useAuth();
   const [logOrSign, setLogOrSign] = useState(false);
@@ -21,25 +23,33 @@ function AuthForm() {
 
 
   function validateForm() {
-    let newErrors: Errors = {};
-
-    if (!userName.trim()) newErrors.userName = "Username is required";
-    if (!password) newErrors.password = "Password is required";
-    else if (password.length < 8 && password.length > 256)
-      newErrors.password = "Password must be at least 8 to 256 characters long";
-
-    if (logOrSign) {
-      if (!email) newErrors.email = "Email is required";
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-        newErrors.email = "Invalid email format";
-      if (!fullName.trim()) newErrors.fullName = "Full name is required";
-      if(fullName.trim().length < 1 && fullName.trim().length > 512){
-          newErrors.fullName = "Full name should be 1 to 512 characters long"
+    try {
+      if (logOrSign) {
+        signupSchema.parse({
+          userName,
+          password,
+          email,
+          fullName
+        });
+      } else {
+        baseAuthSchema.parse({
+          userName,
+          password
+        });
       }
+      setErrors({});
+      return true;
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors: Errors = {};
+        error.issues.forEach((issue) => {
+          const fieldName = issue.path[0] as string; 
+          newErrors[fieldName] = issue.message;
+        });
+        setErrors(newErrors as Errors);
+      }
+      return false;
     }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

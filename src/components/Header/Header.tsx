@@ -38,15 +38,17 @@ export function Header() {
           </div>
         </div>
       </div>
-      
-        <div className="header_options" style={{display:showButton?"block":'none'}}>
-          <div className="header_options_container">
-            <button onClick={handleClick} className="header_options_button">
-              Logout
-            </button>
-          </div>
+
+      <div
+        className="header_options"
+        style={{ display: showButton ? "block" : "none" }}
+      >
+        <div className="header_options_container">
+          <button onClick={handleClick} className="header_options_button">
+            Logout
+          </button>
         </div>
-      
+      </div>
     </>
   );
 }

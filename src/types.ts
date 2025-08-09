@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 export interface Errors {
+  [key: string]: string | undefined;
   email?: string;
   password?: string;
   userName?: string;
@@ -15,7 +16,6 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  userName: string;
   password: string;
 }
 

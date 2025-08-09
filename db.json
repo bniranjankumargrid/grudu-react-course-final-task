@@ -134,6 +134,46 @@
       "id": "3c179cdf-4840-4466-853d-9be33402458f",
       "author_id": "xNinja",
       "text": "dawdaw"
+    },
+    {
+      "id": "a6b70324-2f44-4377-afd2-721723ca4e7a",
+      "author_id": "Ninja",
+      "text": "Hola"
+    },
+    {
+      "id": "67ef3654-651c-44f7-ac18-d544c746222e",
+      "author_id": "Ninja",
+      "text": "d"
+    },
+    {
+      "id": "aab6a675-3825-4fd7-857b-1a3729a4d842",
+      "author_id": "dwad",
+      "text": "dev"
+    },
+    {
+      "id": "ebd27639-df2b-421f-94bc-59aeaf19fec9",
+      "author_id": "dwad",
+      "text": "hola"
+    },
+    {
+      "id": "8ae8180a-2675-427a-b319-4a9ac28cf3c5",
+      "author_id": "dwad",
+      "text": "dwa"
+    },
+    {
+      "id": "5b46401a-597c-4e5f-b164-9c41f1e0e74b",
+      "author_id": "dwad",
+      "text": "lol"
+    },
+    {
+      "id": "7931cfe4-0183-4dfc-bc94-e1bfb88ca9d8",
+      "author_id": "dwad",
+      "text": "dwa"
+    },
+    {
+      "id": "d54ba5b7-c029-4948-91ad-1f50b955a942",
+      "author_id": "dwad",
+      "text": "dw"
     }
   ],
   "users": [
@@ -166,6 +206,18 @@
       "email": "ninja@gmail.com",
       "name": "Ninja Kumar",
       "password": "Ninja@123"
+    },
+    {
+      "id": "Ninjax",
+      "email": "ninja@ninja.com",
+      "name": "Niru",
+      "password": "1234"
+    },
+    {
+      "id": "dwad",
+      "email": "ninja1@gmail.com",
+      "name": "Ninju",
+      "password": "Lmao@123"
     }
   ]
 }
